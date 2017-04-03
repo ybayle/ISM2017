@@ -243,10 +243,12 @@ def update_filelist():
     @brief      Update the database with the boolean indicating if features have
      been extracted a tool
     """
-    folders = ["../features/marsyas/", "../features/yaafe/"]
+    main_dir = "E:/_These/DataSets/Recisio/features/"
+    folders = ["marsyas/", "yaafe/", "essentia/"]
     data = []
     for fold in folders:
-        query = "UPDATE recisio SET " + fold.split("/")[2] + " = 1 WHERE id = "
+        fold = main_dir + fold
+        query = "UPDATE recisio SET " + fold.split("/")[-2] + " = 1 WHERE id = "
         file_list = os.listdir(fold)
         for index, filen in enumerate(file_list):
             print(index)
@@ -258,7 +260,7 @@ def export(outfile):
     @brief      Export artist and track name from the database
     @param      outfile  The outfile for storing artist and track name
     """
-    query = "SELECT artist,track FROM recisio WHERE marsyas=1 AND yaafe=1 "
+    query = "SELECT artist,track FROM recisio WHERE marsyas=1 AND yaafe=1 and essentia=1 "
     query += "ORDER BY artist ASC "
     query += "INTO OUTFILE '" + outfile + "' "
     query += "FIELDS TERMINATED BY ',' "
