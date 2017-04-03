@@ -235,11 +235,14 @@ def request(query, verbose=False):
         else:
             db.commit()
             result = cur.fetchall()
-            if verbose:
-                print(result)
+            print(result)
         db.close()
 
 def update_filelist():
+    """
+    @brief      Update the database with the boolean indicating if features have
+     been extracted a tool
+    """
     folders = ["../features/marsyas/", "../features/yaafe/"]
     data = []
     for fold in folders:
@@ -250,9 +253,24 @@ def update_filelist():
             m = re.search(r"\d{2,10}", filen)
             request(query + m.group())
 
+def export(outfile):
+    """
+    @brief      Export artist and track name from the database
+    @param      outfile  The outfile for storing artist and track name
+    """
+    query = "SELECT artist,track FROM recisio WHERE marsyas=1 AND yaafe=1 "
+    query += "ORDER BY artist ASC "
+    query += "INTO OUTFILE '" + outfile + "' "
+    query += "FIELDS TERMINATED BY ',' "
+    request(query)
+
 def main():
+    """
+    @brief      Main entry point
+    """
     # list_files()
-    update_filelist()
+    # update_filelist()
+    export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
     # extract_features(dir_feat="../features/")
 
 if __name__ == "__main__":
