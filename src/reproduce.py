@@ -266,13 +266,63 @@ def export(outfile):
     query += "FIELDS TERMINATED BY ',' "
     request(query)
 
+def remaining(outfile):
+    """
+    @brief      Export remaining tracks to listen to
+    @param      outfile  The outfile for storing the artist and track name
+    """
+    query = "SELECT artist,track "
+    query += "FROM recisio "
+    query += "WHERE feat_marsyas=1 AND feat_yaafe=1 and feat_essentia=1 and tag_gender ='' "
+    query += "ORDER BY artist ASC "
+    query += "INTO OUTFILE '" + outfile + "' "
+    query += "FIELDS TERMINATED BY ',' "
+    request(query)
+
+def add_info_bv():
+    """
+    @brief      Adds an information about the presence of backing vocals.
+                So update gender to mixed.
+                TODO: later need to listen to the lead voice without bv
+    
+    @return     No return value
+    """
+    main_dir = "E:/_These/DataSets/Recisio/audio/"
+    query1 = "UPDATE recisio SET gender = 'mixed' WHERE id = "
+    query2 = "UPDATE recisio SET tag_back_voc = 1 WHERE id = "
+    for index, fold in enumerate(os.listdir(main_dir)):
+        print(index)
+        if os.path.isdir(main_dir + fold):
+            filelist = os.listdir(main_dir + fold)
+            for filen in filelist:
+                if "-bv-" in filen:
+                    m = re.search(r"\d{2,10}", filen)
+                    request(query1 + m.group())
+                    request(query2 + m.group())
+                    break
+
+def stat():
+    """
+    @brief      Display stat about the database
+    """
+    pass
+    # query = "SELECT artist,track "
+    # query += "FROM recisio "
+    # query += "WHERE marsyas=1 AND yaafe=1 and essentia=1 and gender ='' "
+    # query += "ORDER BY artist ASC "
+    # query += "INTO OUTFILE '" + outfile + "' "
+    # query += "FIELDS TERMINATED BY ',' "
+    # request(query)
+
 def main():
     """
     @brief      Main entry point
     """
     # list_files()
     # update_filelist()
-    export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
+    # export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
+    # remaining(outfile="D:/_Doctorat/ISMIR2017/data/remaining.csv")
+    add_info_bv()
     # extract_features(dir_feat="../features/")
 
 if __name__ == "__main__":
