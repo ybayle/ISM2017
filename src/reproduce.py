@@ -179,19 +179,19 @@ def marsyas(out_dir, filelist):
     It is neccesary to merge those files into one common file.
     """
     dir_feat = utils.create_dir(utils.create_dir(out_dir) + "marsyas/")
+    tmp = "tmp.mf"
     for index, filen in enumerate(filelist):
         utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
         filen = filen.split("/")[-1]
         filen = filen.replace(" ", "_")
         filen = filen.replace("'", "_")
         filen = filen.replace('"', "_")
-        tmp = "tmp.mf"
         # tmp = filen + ".mf"
         with open(tmp, "w") as filep:
             filep.write(filen + "\n")
         outfilename = dir_feat + filen + ".arff"
         bextract_features(tmp, outfilename)
-        os.remove(tmp)
+        # os.remove(tmp)
     merge_arff(dir_feat, out_dir + "marsyas.arff")
 
 def run_cmd(cmd_name, verbose=False):
@@ -222,7 +222,6 @@ def extract_features(dir_feat):
     #     # yaafe(filen)
     #     essentia(dir_feat, filen)
     # utils.print_progress_end()
-
 
 def request(query, verbose=False):
     try:

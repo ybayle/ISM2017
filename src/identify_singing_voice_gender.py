@@ -20,8 +20,10 @@ python identify_singing_voice_gender.py -g groundtruths.csv -f features.csv
 """
 
 import os
+import re
 import sys
 import utils
+import classify
 import argparse
 
 def read_gts(gt_filen):
@@ -42,7 +44,7 @@ def read_gts(gt_filen):
                 data[row[0]] = row[3]
     return data
 
-def merge_gt_feat(gt_filen, feat_filen):
+def merge_gt_feat(gt_filen, feat_filen, train_filen):
     """
     @brief      Read the files containing ground truths and features and merge
                 them to be used for classification
@@ -53,51 +55,25 @@ def merge_gt_feat(gt_filen, feat_filen):
     utils.print_success("Adding groundtruth")
     feat_filen = utils.abs_path_file(feat_filen)
     gt_filen = utils.abs_path_file(gt_filen)
-    groundtruths = read_gts(gt_filen)
-    output_fn = "gender_feat_gt.csv"
-    output = open(output_fn, "w")
-
-    # switch if test set preprocessing
-    # separator = "_"
-    separator = "."
-
+    gts = read_gts(gt_filen)
+    output = open(train_filen, "w")
     with open(feat_filen, "r") as feat:
-        line_num = 0
-        tmp_line = ""
+        cur_id = ""
         for line in feat:
-            line_num += 1
-            if line_num > 74:
-                if line[0] != "%":
-                    # Alter feature line with correct tag
-                    cur_line = line.split(",")
-                    old_tag = cur_line[-1].split(separator)[0]
-                    if old_tag in groundtruths:
-                        new_tag = groundtruths[old_tag]
-                        output.write(tmp_line + ",".join(cur_line[:-1]) + "," + new_tag +"\n")
-                        tmp_line = ""
-                        tags.append(new_tag)
-                    else:
-                        # File not in groundtruth
-                        tmp_line = ""
-                        # utils.print_warning("Error with " + old_tag)
-                else:
-                    tmp_line += line
-            elif line_num == 2:
-                output.write("@relation train_test.arff\n")
-                # output.write("@relation MARSYAS_KEA\n")
-            elif line_num == 71:
-                # Alter line 71 containing all tag gathered along the way
-                output.write("@attribute output {i,s}\n")
-            else:
-                # Write header
-                output.write(line)
+            if "filename" in line:
+                m = re.search(r"\d{2,10}", line)
+                cur_id = m.group()
+            elif len(cur_id) > 1 and "srate" not in line and cur_id in gts:
+                output.write(str(cur_id) + "," + line[:-4] + gts[cur_id] + "\n")
     output.close()
 
 def main(args):
     """
     @brief      Main entry point
     """
-    merge_gt_feat(gt_filen=args.gtfn, feat_filen=args.featfn)
+    train_fn = "train_fn.csv"
+    merge_gt_feat(gt_filen=args.gtfn, feat_filen=args.featfn, train_filen=train_fn)
+    classify.cross_validation(train_filename=train_fn, n_folds=5, outfilename="toto.csv")
 
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(
