@@ -179,23 +179,25 @@ def marsyas(out_dir, filelist):
     It is neccesary to merge those files into one common file.
     """
     dir_feat = utils.create_dir(utils.create_dir(out_dir) + "marsyas/")
-    tmp = "tmp.mf"
     for index, filen in enumerate(filelist):
         utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
-        with open(tmp, "w") as filep:
-            filep.write(filen + "\n")
         filen = filen.split("/")[-1]
         filen = filen.replace(" ", "_")
         filen = filen.replace("'", "_")
         filen = filen.replace('"', "_")
+        tmp = "tmp.mf"
+        # tmp = filen + ".mf"
+        with open(tmp, "w") as filep:
+            filep.write(filen + "\n")
         outfilename = dir_feat + filen + ".arff"
         bextract_features(tmp, outfilename)
+        os.remove(tmp)
     merge_arff(dir_feat, out_dir + "marsyas.arff")
 
-def run_cmd(cmd, verbose=False):
+def run_cmd(cmd_name, verbose=False):
     if not verbose:
-        cmd += " > /dev/null 2>&1"
-    os.system(cmd)
+        cmd_name += " > /dev/null 2>&1"
+    os.system(cmd_name)
 
 def essentia_extract_feat(in_fn, out_fn, verbose=False):
     cmd = "/home/yann/MTG/Extractor/essentia-extractors-v2.1_beta2/streaming_extractor_music '" + in_fn + "' '" + out_fn + "'"
@@ -209,16 +211,17 @@ def essentia(out_dir, filen):
 def extract_features(dir_feat):
     filelist = []
     folder = "/media/sf_SharedFolder/DataSets/Recisio/audio/"
+    # folder = "E:/_These/DataSets/Recisio/audio/"
     for fold in os.listdir(folder):
         for filename in os.listdir(folder + fold):
             if "ld.wav" in filename:
                 filelist.append(folder + fold + "/" + filename)
-    # marsyas(dir_feat, filelist)
-    for index, filen in enumerate(filelist):
-        utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
-        # yaafe(filen)
-        essentia(dir_feat, filen)
-    utils.print_progress_end()
+    marsyas(dir_feat, filelist)
+    # for index, filen in enumerate(filelist):
+    #     utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
+    #     # yaafe(filen)
+    #     essentia(dir_feat, filen)
+    # utils.print_progress_end()
 
 
 def request(query, verbose=False):
@@ -245,7 +248,6 @@ def update_filelist():
     """
     main_dir = "E:/_These/DataSets/Recisio/features/"
     folders = ["marsyas/", "yaafe/", "essentia/"]
-    data = []
     for fold in folders:
         fold = main_dir + fold
         query = "UPDATE recisio SET " + fold.split("/")[-2] + " = 1 WHERE id = "
@@ -322,8 +324,10 @@ def main():
     # update_filelist()
     # export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
     # remaining(outfile="D:/_Doctorat/ISMIR2017/data/remaining.csv")
-    add_info_bv()
-    # extract_features(dir_feat="../features/")
+    # add_info_bv()
+    dir_feat = "/media/sf_SharedFolder/DataSets/Recisio/features/"
+    # dir_feat = "E:/_These/DataSets/Recisio/features/"
+    extract_features(dir_feat)
 
 if __name__ == "__main__":
     main()
