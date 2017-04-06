@@ -4,7 +4,7 @@ Reproducible research code for the article submitted to ISMIR 2017.
 ## Aim of the paper
 - Propose a novel industrial musical database
 - Cover Song Identification task on the before-mentioned database
-- Singing Voice's Gender Classification task on the before-mentioned database
+- Singer's Gender Classification task on the before-mentioned database
 
 ## Tree structure (Description of available files)
 - The folder src/ contains python files necessary to reproduce our algorithm
