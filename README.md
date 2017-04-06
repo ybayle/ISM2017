@@ -8,7 +8,7 @@ Reproducible research code for the article submitted to ISMIR 2017.
 
 ## Tree structure (Description of available files)
 - The folder src/ contains python files necessary to reproduce our algorithm
-- The folder data/ contains a file named `recisio.csv` that lists for each audio file:
+- The folder data/ contains a file named `filelist.csv` that lists for each audio file:
     - the unique identifier
     - the artist name
     - the track name
