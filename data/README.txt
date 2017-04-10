@@ -7,3 +7,6 @@ artist NOT IN ('christmas-carol', 'traditional', 'nursery-rhyme', 'comptine', 'h
 
 origin_songs.csv
 - first 100 songs from artist_track_suitable.csv
+
+origin_songs_colored.xls
+- origin songs, colored what we have available
