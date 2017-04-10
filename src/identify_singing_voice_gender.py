@@ -73,7 +73,7 @@ def main(args):
     """
     train_fn = "train_fn.csv"
     merge_gt_feat(gt_filen=args.gtfn, feat_filen=args.featfn, train_filen=train_fn)
-    classify.cross_validation(train_filename=train_fn, n_folds=5, outfilename="toto.csv")
+    classify.cross_validation(train_filename=train_fn, n_folds=2, outfilename="toto.csv")
 
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         "--gtfn",
         help="The ground truths filename",
         type=str,
-        default="D:/_Doctorat/ISMIR2017/data/recisio.csv",
+        default="D:/_Doctorat/ISMIR2017/data/filelist.csv",
         metavar="gtfn")
     PARSER.add_argument(
         "-f",

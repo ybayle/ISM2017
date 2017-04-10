@@ -261,7 +261,10 @@ def export(outfile):
     @brief      Export artist and track name from the database
     @param      outfile  The outfile for storing artist and track name
     """
-    query = "SELECT artist,track FROM recisio WHERE marsyas=1 AND yaafe=1 and essentia=1 "
+    query = "SELECT artist,track FROM recisio "
+    query += "WHERE feat_marsyas=1 AND feat_yaafe=1 and feat_essentia=1 "
+    query += "and artist NOT IN ('christmas-carol', 'traditional', 'comptine', "
+    query += "'nursery-rhyme', 'happy-birthday-songs', 'mexican-traditional') "
     query += "ORDER BY artist ASC "
     query += "INTO OUTFILE '" + outfile + "' "
     query += "FIELDS TERMINATED BY ',' "
@@ -321,12 +324,12 @@ def main():
     """
     # list_files()
     # update_filelist()
-    # export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
+    export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
     # remaining(outfile="D:/_Doctorat/ISMIR2017/data/remaining.csv")
     # add_info_bv()
-    dir_feat = "/media/sf_SharedFolder/DataSets/Recisio/features/"
+    # dir_feat = "/media/sf_SharedFolder/DataSets/Recisio/features/"
     # dir_feat = "E:/_These/DataSets/Recisio/features/"
-    extract_features(dir_feat)
+    # extract_features(dir_feat)
 
 if __name__ == "__main__":
     main()

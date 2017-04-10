@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+origins/
+UltraStar_Singers.arff
+src/toto.csv
+src/train_fn.csv
