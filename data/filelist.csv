@@ -32,7 +32,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 5116,peter-et-sloane,besoin-de-rien-envie-de-toi,mixed,,1,0,0,1,0,0
 5117,renaud,mistral-gagnant,male,fr,0,1,1,1,0,0
 5119,telephone,ca-c-est-vraiment-toi,mixed,,1,1,1,1,0,mp3_128
-5120,telephone,new-york-avec-toi,mixed,,1,1,1,1,0,wma_128
+5120,telephone,new-york-avec-toi,mixed,,1,1,1,1,0,mp3_128
 5121,the-mamas-and-the-papas,california-dreamin,,,0,1,0,1,0,0
 5122,thierry-hazard,le-jerk,mixed,,1,1,1,1,0,0
 5123,umberto-tozzi,ti-amo,mixed,,1,1,1,1,0,mp3_128
@@ -141,7 +141,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 5928,the-diamonds,little-darlin,,,0,0,0,0,0,0
 5936,the-coasters,poison-ivy,mixed,,1,1,1,1,0,0
 5940,celine-dion,pour-que-tu-m-aimes-encore,,,0,0,0,0,0,0
-5942,celine-dion,my-heart-will-go-on,mixed,,1,1,1,1,0,wma_128
+5942,celine-dion,my-heart-will-go-on,mixed,,1,1,1,1,0,mp3_128
 5943,celine-dion,all-by-myself,female,en,0,1,1,1,0,mp3_128
 5952,garou,sous-le-vent,mixed,,1,1,1,1,0,0
 5962,jean-jacques-goldman,au-bout-de-mes-reves,mixed,,1,0,0,1,0,0
@@ -347,7 +347,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 7581,leann-rimes,can-t-fight-the-moonlight,,,0,0,0,0,0,0
 7593,dido,here-with-me,,,0,0,0,0,0,0
 7624,peaches-and-herb,shake-your-groove-thing,mixed,,1,1,1,1,0,0
-7626,santana,black-magic-woman,male,en,0,1,1,1,0,wma_160
+7626,santana,black-magic-woman,male,en,0,1,1,1,0,mp3_128
 7628,santana,she-s-not-there,,,0,0,0,1,0,0
 7636,santana,love-of-my-life,,,0,0,0,0,0,0
 7645,elvis-presley,american-trilogy,mixed,,1,1,1,1,0,0
@@ -430,7 +430,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 8878,billy-joel,new-york-state-of-mind,,,0,0,0,0,0,0
 8885,bobby-darin,dream-lover,mixed,,1,1,1,1,0,0
 8888,neil-diamond,cracklin-rosie,mixed,,1,1,1,0,0,0
-8917,red-hot-chili-peppers,otherside,mixed,,1,1,1,1,0,wma_128
+8917,red-hot-chili-peppers,otherside,mixed,,1,1,1,1,0,mp3_128
 8957,creedence-clearwater-revival,the-midnight-special,mixed,,1,0,0,0,0,0
 8964,the-foundations,build-me-up-buttercup,mixed,,1,1,1,1,0,0
 9010,the-carpenters,they-long-to-be-close-to-you,mixed,,1,1,0,1,0,0
@@ -508,7 +508,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 10099,b-j-thomas,raindrops-keep-fallin-on-my-head,,,0,0,0,0,0,0
 10100,doris-day,que-sera-sera-whatever-will-be-will-be,mixed,,1,0,0,1,0,0
 10102,irene-cara,fame,,,0,0,0,0,0,0
-10104,ac-dc,you-shook-me-all-night-long,mixed,,1,1,1,1,0,wav
+10104,ac-dc,you-shook-me-all-night-long,mixed,,1,1,1,1,0,mp3_128
 10106,the-band,the-weight,mixed,,1,1,1,1,0,0
 10193,alan-jackson,who-s-cheatin-who,,,0,0,0,0,0,0
 10199,ray-charles,you-don-t-know-me,,,0,0,0,0,0,0
@@ -668,7 +668,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 11954,wicked,defying-gravity,mixed,,1,1,1,1,0,0
 11957,tv-theme,happy-days,,,0,0,0,0,0,0
 11963,wicked,popular,mixed,,1,1,1,1,0,0
-11971,michael-buble,everything,mixed,,1,1,1,1,0,wma_128
+11971,michael-buble,everything,mixed,,1,1,1,1,0,mp3_128
 11973,gerard-lenorman,la-ballade-des-gens-heureux,,,0,0,0,0,0,0
 11974,jacques-dutronc,j-aime-les-filles,,,0,0,0,0,0,0
 11975,claude-francois,le-lundi-au-soleil,mixed,,1,1,1,1,0,0
@@ -691,10 +691,10 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 12078,patricia-kaas,mademoiselle-chante-le-blues,mixed,,1,1,1,1,0,0
 12085,dalida,il-venait-d-avoir-18-ans,,,0,0,0,0,0,0
 12087,francis-cabrel,l-encre-de-tes-yeux,male,fr,0,1,1,1,0,mp3_128
-12103,the-beatles,yesterday,mixed,en,0,1,1,1,0,wma_160
+12103,the-beatles,yesterday,mixed,en,0,1,1,1,0,mp3_128
 12108,bob-marley,is-this-love,mixed,,1,0,0,0,0,0
 12110,lionel-richie,hello,male,en,0,1,1,1,0,0
-12120,telephone,cendrillon,male,en,0,1,1,1,0,wma_128
+12120,telephone,cendrillon,male,en,0,1,1,1,0,mp3_128
 12132,kana,plantation,,,0,0,0,0,0,0
 12165,hairspray,i-know-where-i-ve-been,,,0,0,0,0,0,0
 12167,hairspray,mama-i-m-a-big-girl-now,mixed,,1,1,1,1,0,0
@@ -913,8 +913,8 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 13613,duran-duran,ordinary-world,mixed,,1,1,1,1,0,0
 13620,le-roi-lion,l-amour-brille-sous-les-etoiles,mixed,,1,1,1,1,0,0
 13627,barbra-streisand,woman-in-love,,,0,0,0,0,0,0
-13636,guns-n-roses,knockin-on-heaven-s-door,mixed,,1,1,1,1,0,wma_128
-13650,michael-jackson,man-in-the-mirror,mixed,,1,1,1,1,0,wma_128
+13636,guns-n-roses,knockin-on-heaven-s-door,mixed,,1,1,1,1,0,mp3_128
+13650,michael-jackson,man-in-the-mirror,mixed,,1,1,1,1,0,mp3_128
 13652,marvin-gaye,let-s-get-it-on,mixed,,1,0,0,0,0,0
 13659,amii-stewart,knock-on-wood,,,0,0,0,0,0,0
 13668,phil-collins,another-day-in-paradise,mixed,,1,1,1,1,0,0
@@ -1176,7 +1176,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 18017,inxs,new-sensation,,,0,0,0,0,0,0
 18022,the-shirelles,will-you-love-me-tomorrow,mixed,,1,0,0,1,0,0
 18034,the-stylistics,betcha-by-golly-wow,,,0,0,0,0,0,0
-18038,janis-joplin,piece-of-my-heart,mixed,,1,1,1,1,0,wma_160
+18038,janis-joplin,piece-of-my-heart,mixed,,1,1,1,1,0,mp3_128
 18039,enya,may-it-be,,,0,0,0,0,0,0
 18055,jackie-wilson,your-love-keeps-lifting-me-higher-and-higher,,,0,0,0,0,0,0
 18096,jennifer-lopez,let-s-get-loud,mixed,,1,1,1,1,0,0
@@ -1348,7 +1348,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 21028,the-gipsy-kings,baila-me,,,0,0,0,0,0,0
 21051,juan-luis-guerra,burbujas-de-amor,,,0,0,0,0,0,0
 21073,kenny-rogers,coward-of-the-county,mixed,,1,0,0,1,0,0
-21084,limp-bizkit,behind-blue-eyes,mixed,,1,1,1,1,0,wma_128
+21084,limp-bizkit,behind-blue-eyes,mixed,,1,1,1,1,0,mp3_128
 21121,kenny-rogers,lucille,mixed,,1,1,1,1,0,0
 21161,gloria-estefan,oye-mi-canto,mixed,,1,1,1,1,0,0
 21211,queen,bicycle-race,,,0,0,0,0,0,0
@@ -1363,7 +1363,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 21309,beyonce,if-i-were-a-boy,mixed,,1,1,1,1,0,0
 21321,thom-pace,maybe,,,0,0,0,0,0,0
 21339,soulsister,the-way-to-your-heart,,,0,0,0,0,0,0
-21367,the-beatles,strawberry-fields-forever,mixed,,1,1,1,1,0,wma_160
+21367,the-beatles,strawberry-fields-forever,mixed,,1,1,1,1,0,mp3_128
 21379,vera-lynn,we-ll-meet-again,,,0,0,0,0,0,0
 21404,kings-of-leon,use-somebody,mixed,,1,1,1,1,0,0
 21429,dalida,besame-mucho,,,0,0,0,0,0,0
@@ -2084,7 +2084,7 @@ id,artist,track,tag_gender,tag_lang,tag_back_voc,feat_yaafe,feat_marsyas,feat_es
 39467,mamma-mia,mamma-mia-version-francaise,,,0,0,0,0,0,0
 39513,dwight-yoakam,little-sister,,,0,0,0,0,0,0
 39558,dolly-parton,save-the-last-dance-for-me,,,0,0,0,0,0,0
-39572,led-zeppelin,kashmir,male,en,0,1,1,1,0,wma_128
+39572,led-zeppelin,kashmir,male,en,0,1,1,1,0,mp3_128
 39579,les-aristochats,des-gammes-et-des-arpeges,mixed,fr,0,1,1,1,0,0
 39604,maroon-5,the-way-you-look-tonight,,,0,0,0,0,0,0
 39605,jj-cale,call-me-the-breeze,mixed,,1,0,0,0,0,0

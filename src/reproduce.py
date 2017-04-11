@@ -27,6 +27,7 @@ import sys
 import utils
 import shutil
 import pymysql
+from pydub import AudioSegment
 
 def rm_space(string):
     """
@@ -318,13 +319,36 @@ def stat():
     # query += "FIELDS TERMINATED BY ',' "
     # request(query)
 
+def audio2mp3(folder, verbose=True):
+    """
+    @brief      Convert any audio files to mp3
+    
+    @param      folder  The folder containing audio files to be converted in mp3
+    """
+    folder = utils.abs_path_dir(folder)
+    filelist = os.listdir(folder)
+    for index, entire_fn in enumerate(filelist):
+        if verbose:
+            print(str(index + 1) + "/" + str(len(filelist)) + " " + entire_fn)
+        filen = entire_fn.split(".")[0]
+        extension = entire_fn.split(".")[1]
+        print(filen)
+        print(extension)
+        print(folder + entire_fn)
+        print(folder + filen)
+        audio = AudioSegment.from_file(folder + entire_fn, format=extension)
+        audio.export(folder + filen + ".mp3", format="mp3")
+    if verbose:
+        print("Conversion done")
+
 def main():
     """
     @brief      Main entry point
     """
+    audio2mp3("D:/_Doctorat/ISMIR2017/origins/conv")
     # list_files()
     # update_filelist()
-    export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
+    # export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
     # remaining(outfile="D:/_Doctorat/ISMIR2017/data/remaining.csv")
     # add_info_bv()
     # dir_feat = "/media/sf_SharedFolder/DataSets/Recisio/features/"
