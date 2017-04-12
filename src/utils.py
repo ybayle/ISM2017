@@ -309,3 +309,8 @@ def mv_files(fnames):
             new_dir = os.sep.join(new_dir[:-1]) + tmp_dir
             create_dir(new_dir)
             shutil.move(fname, new_dir + fname.split("/")[-1])
+
+def run_cmd(cmd_name, verbose=False):
+    if not verbose:
+        cmd_name += " > /dev/null 2>&1"
+    os.system(cmd_name)
