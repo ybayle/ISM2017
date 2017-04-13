@@ -209,20 +209,23 @@ def essentia(out_dir, filen):
     output = dir_feat + filen.split("/")[-1] + ".json"
     essentia_extract_feat(filen, output)
 
-def extract_features(dir_feat):
+def extract_features(dir_audio, dir_feat):
+    dir_audio = utils.abs_path_dir(dir_audio)
+    dir_feat = utils.abs_path_dir(dir_feat)
     filelist = []
-    folder = "/media/sf_SharedFolder/DataSets/Recisio/audio/"
-    # folder = "E:/_These/DataSets/Recisio/audio/"
-    for fold in os.listdir(folder):
-        for filename in os.listdir(folder + fold):
-            if "ld.wav" in filename:
-                filelist.append(folder + fold + "/" + filename)
+    for elem in os.listdir(dir_audio):
+        if os.path.isfile(dir_audio + elem):
+            filelist.append(dir_audio + elem)
+        else:
+            for filename in os.listdir(dir_audio + elem):
+                if "ld.wav" in filename:
+                    filelist.append(dir_audio + elem + "/" + filename)
     marsyas(dir_feat, filelist)
-    # for index, filen in enumerate(filelist):
-    #     utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
-    #     # yaafe(filen)
-    #     essentia(dir_feat, filen)
-    # utils.print_progress_end()
+    for index, filen in enumerate(filelist):
+        utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
+        yaafe(filen)
+        essentia(dir_feat, filen)
+    utils.print_progress_end()
 
 def request(query, verbose=False):
     try:
@@ -345,15 +348,17 @@ def main():
     """
     @brief      Main entry point
     """
-    audio2mp3("D:/_Doctorat/ISMIR2017/origins/conv")
+    # audio2mp3("D:/_Doctorat/ISMIR2017/origins/conv")
     # list_files()
     # update_filelist()
     # export(outfile="D:/_Doctorat/ISMIR2017/data/artist_track.csv")
     # remaining(outfile="D:/_Doctorat/ISMIR2017/data/remaining.csv")
     # add_info_bv()
-    # dir_feat = "/media/sf_SharedFolder/DataSets/Recisio/features/"
-    # dir_feat = "E:/_These/DataSets/Recisio/features/"
-    # extract_features(dir_feat)
+    # dir_feat1 = "/media/sf_SharedFolder/DataSets/Recisio/features/"
+    # dir_feat2 = "E:/_These/DataSets/Recisio/features/"
+    dir_audio = "/media/sf_DATA/ISMIR2017/origins/"
+    dir_feat3 = "/media/sf_DATA/ISMIR2017/features/origins/"
+    extract_features(dir_audio, dir_feat3)
 
 if __name__ == "__main__":
     main()

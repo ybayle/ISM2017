@@ -20,6 +20,7 @@ python harmony-analyser-parser.py
 """
 
 import os
+import re
 import sys
 import utils
 import shutil
@@ -57,17 +58,26 @@ def main(args):
     """
     @brief      Main entry point
     """
-    in_dir = utils.abs_path_dir(args.in_dir)
     path = utils.abs_path_dir(args.path)
+    in_dir = utils.abs_path_dir(args.in_dir)
+    out_dir = utils.abs_path_dir(args.out_dir)
+    id_songs_feat_done = []
+    for filen in os.listdir(out_dir):
+        if os.path.isfile(out_dir + filen):
+            m = re.search(r"\d{3,9}", filen)
+            id_songs_feat_done.append(m.group())
+    id_songs_feat_done = list(set(id_songs_feat_done))
     index = 0
     with open("../data/filelist.csv", "r") as filep:
         for line in filep:
             row = line[:-1].split(",")
+            # Check if features have been extracted by YAAFE, Marsyas & Essentia
             if "1" in row[6] and "1" in row[7] and "1" in row[8]:
-                folder = in_dir + row[1] + "_" + row[2] + "_" + row[0]
-                index += 1
-                print(str(index) + " " + folder)
-                extract_features(folder, "/media/sf_DATA/ISMIR2017/features/origins/chromas/", path)
+                if not row[0] in id_songs_feat_done:
+                    folder = in_dir + row[1] + "_" + row[2] + "_" + row[0]
+                    index += 1
+                    print(str(index) + " " + folder)
+                    extract_features(folder, out_dir, path)
 
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(
@@ -79,6 +89,13 @@ if __name__ == "__main__":
         type=str,
         default="/media/sf_SharedFolder/DataSets/Recisio/audio/",
         metavar="in_dir")
+    PARSER.add_argument(
+        "-o",
+        "--out_dir",
+        help="The output directory for storing features",
+        type=str,
+        default="/media/sf_DATA/ISMIR2017/features/origins/chromas/",
+        metavar="out_dir")
     PARSER.add_argument(
         "-p",
         "--path",
