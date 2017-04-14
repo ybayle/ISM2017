@@ -94,3 +94,10 @@ src/train_fn.csv
 features/yaafe/
 src/bextract_single.mf
 src/tmp.mf
+features/gender/
+src/errors.txt
+src/gender.txt
+src/harmony-analyser/harmony-analyser-script-jar-with-dependencies.jar
+src/harmony-analyser/test.wav
+src/test.csv
+src/available_old.txt

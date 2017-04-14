@@ -54,33 +54,12 @@ def list_files():
         for line in data:
             filep.write(line)
 
-def yaafe(filen):
-    # Assert Python version
-    if sys.version_info.major != 2:
-        utils.print_error("Yaafe needs Python 2 environment")
-    
-    dir_tracks = filen.split("/")
-    old_fn = dir_tracks[-1]
-    dir_tracks = os.sep.join(dir_tracks[:-1]) + "/"
-    new_fn = old_fn.replace("'", "_")
-    new_fn = new_fn.replace('"', "_")
-    print(dir_tracks)
-    os.rename(dir_tracks + old_fn, dir_tracks + new_fn)
-    filen = "'" + new_fn + "'"
-    print(filen)
-    dir_feat = utils.create_dir(utils.create_dir("../features/") + "yaafe/")
-    dir_current = os.getcwd()
-    os.chdir(dir_tracks)
-    yaafe_cmd = 'yaafe -r 22050 -f "mfcc: MFCC blockSize=2048 stepSize=1024" '
-    yaafe_cmd += "--resample -b " + dir_feat + " "
-    os.system(yaafe_cmd + filen)
-    # os.system(yaafe_cmd + filen + " > /dev/null 2>&1")
-    os.chdir(dir_current)
-
 def bextract_features(in_fn, out_fn, verbose=False):
     bextract_cmd = "bextract -mfcc -zcrs -ctd -rlf -flx -ws 1024 -as 898 -sv -fe " + in_fn + " -w " + out_fn
     if not verbose:
         bextract_cmd += " > /dev/null 2>&1"
+    # print(bextract_cmd)
+    # sys.exit()
     os.system(bextract_cmd)
 
 def validate_arff(filename):
@@ -183,16 +162,17 @@ def marsyas(out_dir, filelist):
     tmp = "tmp.mf"
     for index, filen in enumerate(filelist):
         utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
+        dir_audio = filen.split("/")[:-1]
         filen = filen.split("/")[-1]
         filen = filen.replace(" ", "_")
         filen = filen.replace("'", "_")
         filen = filen.replace('"', "_")
         # tmp = filen + ".mf"
-        with open(tmp, "w") as filep:
-            filep.write(filen + "\n")
+        with open(tmp, "a") as filep:
+            filep.write(os.sep.join(dir_audio) + os.sep + filen + "\n")
         outfilename = dir_feat + filen + ".arff"
-        bextract_features(tmp, outfilename)
-        # os.remove(tmp)
+    bextract_features(tmp, outfilename, verbose=True)
+    os.remove(tmp)
     merge_arff(dir_feat, out_dir + "marsyas.arff")
 
 def run_cmd(cmd_name, verbose=False):
@@ -220,10 +200,10 @@ def extract_features(dir_audio, dir_feat):
             for filename in os.listdir(dir_audio + elem):
                 if "ld.wav" in filename:
                     filelist.append(dir_audio + elem + "/" + filename)
-    marsyas(dir_feat, filelist)
+    # marsyas(dir_feat, filelist)
     for index, filen in enumerate(filelist):
         utils.print_progress_start(str(index+1) + "/" + str(len(filelist)) + " " + filen.split(os.sep)[-1])
-        yaafe(filen)
+        utils.yaafe(filen)
         essentia(dir_feat, filen)
     utils.print_progress_end()
 
