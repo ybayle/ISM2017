@@ -350,7 +350,7 @@ def classify(train=None, test=None, data=None, res_dir="res/", disp=True, outfil
     if not utils.create_dir(res_dir):
         res_dir = utils.abs_path_dir(res_dir)
     classifiers = {
-        "RandomForest": RandomForestClassifier()
+        "RandomForest": RandomForestClassifier(n_jobs=-1)
         # "RandomForest": RandomForestClassifier(n_estimators=5),
         # "KNeighbors":KNeighborsClassifier(3),
         # "GaussianProcess":GaussianProcessClassifier(1.0 * RBF(1.0), warm_start=True),
