@@ -314,3 +314,28 @@ def run_cmd(cmd_name, verbose=False):
     if not verbose:
         cmd_name += " > /dev/null 2>&1"
     os.system(cmd_name)
+
+def yaafe(filen, dir_feat, verbose=False):
+    # Assert Python version
+    if sys.version_info.major != 2:
+        print_error("Yaafe needs Python 2 environment")
+    dir_feat = abs_path_dir(dir_feat)
+    dir_tracks = filen.split("/")
+    old_fn = dir_tracks[-1]
+    dir_tracks = os.sep.join(dir_tracks[:-1]) + "/"
+    new_fn = old_fn.replace("'", "_")
+    new_fn = new_fn.replace('"', "_")
+    if verbose:
+        print(dir_tracks)
+    os.rename(dir_tracks + old_fn, dir_tracks + new_fn)
+    filen = "'" + new_fn + "'"
+    if verbose:
+        print(filen)
+    # dir_feat = create_dir(dir_feat + "yaafe/")
+    dir_current = os.getcwd()
+    os.chdir(dir_tracks)
+    yaafe_cmd = 'yaafe -r 22050 -f "mfcc: MFCC blockSize=2048 stepSize=1024" '
+    yaafe_cmd += "--resample -b " + dir_feat + " "
+    os.system(yaafe_cmd + filen)
+    # os.system(yaafe_cmd + filen + " > /dev/null 2>&1")
+    os.chdir(dir_current)
