@@ -23,7 +23,7 @@ Reproducible research code for the article submitted to ISMIR 2017.
 - The folder `features/` contains features extracted by 
     - [bextract](http://marsyas.info/doc/manual/marsyas-user/bextract.html#bextract) from [Marsyas](http://marsyas.info/) with the following command: 
 `bextract -mfcc -zcrs -ctd -rlf -flx -ws 1024 -as 898 -sv -fe`.
-    - [harmony-analyser](http://www.harmony-analyser.org) with the following commands:
+    - [harmony-analyser](http://www.harmony-analyser.org) with the following commands (not that Vamp analysis was first made to extract low-level features):
 
 `java -jar ha-script.jar -a chord_analyser:chord_complexity_distance -s .wav -t 0.07`
 
@@ -32,6 +32,8 @@ Reproducible research code for the article submitted to ISMIR 2017.
 `java -jar ha-script.jar -a chord_analyser:average_chord_complexity_distance -s .wav -t 0.07`
 
 `java -jar ha-script.jar -a chord_analyser:tps_distance -s .wav -t 0.07`
+
+`java -jar ha-script.jar -a filters:chord_vectors -s .wav -t 0.07`
 
 As concerns features extracted by [YAAFE](https://github.com/Yaafe/Yaafe), [Essentia](https://github.com/MTG/essentia/) and [Vamp](http://www.vamp-plugins.org), they cannot be stored on this github repository because of their inherent size and so are available upon request for direct download.
 The command used for extracting features with:
