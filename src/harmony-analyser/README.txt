@@ -1,20 +1,22 @@
-harmony-analyser-script-jar-with-dependencies.jar
+ha-script.jar
 ===
+
+harmony-analyser in version 1.2 (13th April 2017, www.harmony-analyser.org)
 
 Move the .jar script to the folder with .wav files to analyse.
 
 Please refer to https://github.com/lacimarsik/harmony-analyser for installation and troubleshooting.
 
-7 analysis needed to extract all harmony features (in this order)
+8 analysis needed to extract all harmony features (in this order).
 
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a nnls-chroma:nnls-chroma -s .wav -t 0.07
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a nnls-chroma:chordino-tones -s .wav -t 0.07
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a nnls-chroma:chordino-labels -s .wav -t 0.07
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a qm-vamp-plugins:qm-keydetector -s .wav -t 0.07
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a chord_analyser:tps_distance -s .wav -t 0.07
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a chord_analyser:chord_complexity_distance -s .wav -t 0.07
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a chroma_analyser:complexity_difference -s .wav -t 0.07
-java -jar harmony-analyser-script-jar-with-dependencies.jar -a chord_analyser:average_chord_complexity_distance -s .wav -t 0.07
+java -jar ha-script.jar -a nnls-chroma:nnls-chroma -s .wav -t 0.07
+java -jar ha-script.jar -a nnls-chroma:chordino-tones -s .wav -t 0.07
+java -jar ha-script.jar -a nnls-chroma:chordino-labels -s .wav -t 0.07
+java -jar ha-script.jar -a qm-vamp-plugins:qm-keydetector -s .wav -t 0.07
+java -jar ha-script.jar -a chord_analyser:tps_distance -s .wav -t 0.07
+java -jar ha-script.jar -a chord_analyser:chord_complexity_distance -s .wav -t 0.07
+java -jar ha-script.jar -a chroma_analyser:complexity_difference -s .wav -t 0.07
+java -jar ha-script.jar -a chord_analyser:average_chord_complexity_distance -s .wav -t 0.07
 
 Features extracted are:
 
