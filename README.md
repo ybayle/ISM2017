@@ -24,6 +24,7 @@ Reproducible research code for the article submitted to ISMIR 2017.
     - [bextract](http://marsyas.info/doc/manual/marsyas-user/bextract.html#bextract) from [Marsyas](http://marsyas.info/) with the following command: 
 `bextract -mfcc -zcrs -ctd -rlf -flx -ws 1024 -as 898 -sv -fe`.
     - [harmony-analyser](http://www.harmony-analyser.org) with the following commands:
+
 `java -jar harmony-analyser-script-jar-with-dependencies.jar -a chord_analyser:chord_complexity_distance -s .wav -t 0.07`
 
 `java -jar harmony-analyser-script-jar-with-dependencies.jar -a chroma_analyser:complexity_difference -s .wav -t 0.07`
@@ -37,6 +38,7 @@ The command used for extracting features with:
 - [YAAFE](https://github.com/Yaafe/Yaafe): `yaafe -r 22050 -f "mfcc: MFCC blockSize=2048 stepSize=1024" --resample -b  output_dir_features input_filename`
 - [Essentia](https://github.com/MTG/essentia/): `essentia-extractors-v2.1_beta2/streaming_extractor_music input_filename output_filename`
 - [Vamp](http://www.vamp-plugins.org) extracted via [harmony-analyser](http://www.harmony-analyser.org) using JNI wrapper:
+
 `java -jar harmony-analyser-script-jar-with-dependencies.jar -a nnls-chroma:nnls-chroma -s .wav -t 0.07`
 
 `java -jar harmony-analyser-script-jar-with-dependencies.jar -a nnls-chroma:chordino-tones -s .wav -t 0.07`
