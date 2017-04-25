@@ -33,10 +33,10 @@ The command used for extracting features with:
     - `java -jar ha-script.jar -a nnls-chroma:chordino-tones -s .wav -t 0.07`
     - `java -jar ha-script.jar -a nnls-chroma:chordino-labels -s .wav -t 0.07`
     - `java -jar ha-script.jar -a qm-vamp-plugins:qm-keydetector -s _wav -t 0.07`
-- [harmony-analyser](http://www.harmony-analyser.org) with the following commands (not that Vamp analysis was first made to extract low-level features):
-        - `java -jar ha-script.jar -a chord_analyser:chord_complexity_distance -s .wav -t 0.07`
-        - `java -jar ha-script.jar -a chroma_analyser:complexity_difference -s .wav -t 0.07`
-        - `java -jar ha-script.jar -a chord_analyser:average_chord_complexity_distance -s .wav -t 0.07`
-        - `java -jar ha-script.jar -a chord_analyser:tps_distance -s .wav -t 0.07`
-        - `java -jar ha-script.jar -a filters:chord_vectors -s .wav -t 0.07`
-        - `java -jar ha-script.jar -a filters:key_vectors -s .wav -t 0.07`
+- [harmony-analyser](http://www.harmony-analyser.org) with the following commands (note that Vamp plugin analysis was first performed to extract low-level features):
+    - `java -jar ha-script.jar -a chord_analyser:chord_complexity_distance -s .wav -t 0.07`
+    - `java -jar ha-script.jar -a chroma_analyser:complexity_difference -s .wav -t 0.07`
+    - `java -jar ha-script.jar -a chord_analyser:average_chord_complexity_distance -s .wav -t 0.07`
+    - `java -jar ha-script.jar -a chord_analyser:tps_distance -s .wav -t 0.07`
+    - `java -jar ha-script.jar -a filters:chord_vectors -s .wav -t 0.07`
+    - `java -jar ha-script.jar -a filters:key_vectors -s .wav -t 0.07`
