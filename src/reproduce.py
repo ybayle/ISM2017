@@ -298,7 +298,8 @@ def stat():
     # query += "FROM recisio "
     # query += "WHERE marsyas=1 AND yaafe=1 and essentia=1 and gender ='' "
     # query += "ORDER BY artist ASC "
-    # query += "INTO OUTFILE '" + outfile + "' "
+    #intro
+     query += "INTO OUTFILE '" + outfile + "' "
     # query += "FIELDS TERMINATED BY ',' "
     # request(query)
 
