@@ -1,5 +1,17 @@
-# ISMIR2017
-Reproducible research code for the article submitted to ISMIR 2017.
+# IEEE ISM 2017
+
+Reproducible research code for the article published to IEEE ISM 2017:
+
+```
+@inproceedings{Bayle2017,
+  author = {Bayle, Yann and Maršík, Ladislav and Rusek, Martin and Robine, Matthias and Hanna, Pierre and Slaninová, Kateřina and Martinovič, Jan and Pokorný, Jaroslav},
+  booktitle = {Proceedings of the 19th IEEE International Symposium on Multimedia},
+  link = {http://ism2017.asia.edu.tw/december-12/},
+  month = {Dec.},
+  title = {Kara1k: a karaoke dataset for cover song identification and singing voice analysis},
+  year = {2017}
+}
+```
 
 ## Aim of the paper
 - Propose a novel industrial musical database
