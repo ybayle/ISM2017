@@ -1,6 +1,6 @@
 # IEEE ISM 2017
 
-Reproducible research code for the article published to IEEE ISM 2017:
+Reproducible research code for the article published to [IEEE ISM 2017 conference](http://ism2017.asia.edu.tw/):
 
 ```
 @inproceedings{Bayle2017,
@@ -9,7 +9,9 @@ Reproducible research code for the article published to IEEE ISM 2017:
   link = {http://ism2017.asia.edu.tw/december-12/},
   month = {Dec.},
   title = {Kara1k: a karaoke dataset for cover song identification and singing voice analysis},
-  year = {2017}
+  year = {2017},
+  address={Taichung, Taiwan},
+  pages = {1--8}
 }
 ```
 
